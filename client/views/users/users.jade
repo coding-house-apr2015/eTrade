@@ -11,5 +11,6 @@ h3 {{name | uppercase}}
         input.form-control#password(type='password', name='password', ng-model='user.password')
       .form-group
         button.btn.btn-default(type='submit', ng-click='submit(user)') Submit
-        button.btn.btn-info(ng-click='oauth("twitter")') Twitter
+        button.btn.btn-info(ng-click='oauth("twitter")'): i.fa.fa-twitter
+        button.btn.btn-warning(ng-click='oauth("google")'): i.fa.fa-google
   .col-xs-8

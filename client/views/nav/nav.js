@@ -13,7 +13,7 @@ angular.module('eTrade')
       $rootScope.activeUser = null;
       $rootScope.displayName = null;
       $rootScope.fbUser = null;
-      $rootScope.afAuth = null;
+      $rootScope.afUser = null;
     }
 
     $state.go('home');
@@ -29,6 +29,8 @@ angular.module('eTrade')
         return data.password.email;
       case 'twitter':
         return data.twitter.username;
+      case 'google':
+        return data.google.displayName;
     }
   }
 });
