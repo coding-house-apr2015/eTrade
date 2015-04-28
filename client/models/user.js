@@ -6,6 +6,10 @@ angular.module('eTrade')
   function User(){
   }
 
+  User.oauth = function(provider){
+    return $rootScope.afAuth.$authWithOAuthPopup(provider);
+  };
+
   User.register = function(user){
     return $rootScope.afAuth.$createUser(user);
   };
