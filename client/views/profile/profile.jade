@@ -3,6 +3,7 @@ h3 PROFILE
 .row
   .col-xs-3
     h4 {{profile.name}}
+    h5 {{balance | currency}}
     img.img-responsive.img-thumbnail(ng-src='{{profile.photo}}')
   .col-xs-3
     h4 Profile Form
@@ -26,4 +27,12 @@ h3 PROFILE
         textarea.form-control#address(name='address', ng-model='profile.address')
       .form-group
         button.btn.btn-default(type='submit', ng-click='save(profile)') Save
-  .col-xs-6
+  .col-xs-3
+    h4 Deposit Form
+    form(name='depositForm', novalidate)
+      .form-group
+        label(for='amount') Amount
+        input.form-control#amount(ng-init='amount=0', type='number', name='amount', ng-model='amount')
+      .form-group
+        button.btn.btn-success(type='submit', ng-click='deposit(amount)') Deposit
+  .col-xs-3

@@ -6,9 +6,13 @@ angular.module('eTrade')
   function Profile(){
   }
 
-  Profile.get = function(){
-    var fbProfile = $rootScope.fbUser.child('profile');
-    return $firebaseObject(fbProfile);
+  Profile.deposit = function(amount){
+    if(!$rootScope.afUser.balance){
+      $rootScope.afUser.balance = 0;
+    }
+
+    $rootScope.afUser.balance += amount;
+    return $rootScope.afUser.$save();
   };
 
   Profile.save = function(profile){
