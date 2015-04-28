@@ -1,0 +1,29 @@
+h3 PROFILE
+
+.row
+  .col-xs-3
+    h4 {{profile.name}}
+    img.img-responsive.img-thumbnail(ng-src='{{profile.photo}}')
+  .col-xs-3
+    h4 Profile Form
+    form(name='profileForm', novalidate)
+      .form-group
+        label(for='name') Name
+        input.form-control#name(type='text', name='name', ng-model='profile.name')
+      .form-group
+        label(for='photo') Photo
+        input.form-control#photo(type='url', name='photo', ng-model='profile.photo')
+      .form-group
+        label(for='age') Age
+        input.form-control#age(type='number', name='age', ng-model='profile.age')
+      .form-group
+        label(for='gender') Gender
+        select.form-control#gender(name='gender', ng-model='profile.gender')
+          option Male
+          option Female
+      .form-group
+        label(for='address') Address
+        textarea.form-control#address(name='address', ng-model='profile.address')
+      .form-group
+        button.btn.btn-default(type='submit', ng-click='save(profile)') Save
+  .col-xs-6
