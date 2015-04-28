@@ -1,15 +1,19 @@
 'use strict';
 
 angular.module('eTrade')
-.controller('NavCtrl', function($rootScope, $scope, $state, User){
+.controller('NavCtrl', function($rootScope, $scope, $state, $firebaseObject, User){
 
   $scope.afAuth.$onAuth(function(data){
     if(data){
       $rootScope.activeUser = data;
       $rootScope.displayName = getDisplayName(data);
+      $rootScope.fbUser = $rootScope.fbRoot.child('users/' + data.uid);
+      $rootScope.afUser = $firebaseObject($rootScope.fbUser);
     }else{
       $rootScope.activeUser = null;
       $rootScope.displayName = null;
+      $rootScope.fbUser = null;
+      $rootScope.afAuth = null;
     }
 
     $state.go('home');
