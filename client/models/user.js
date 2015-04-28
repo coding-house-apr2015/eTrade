@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('eTrade')
 .factory('User', function($rootScope){
 
   function User(){

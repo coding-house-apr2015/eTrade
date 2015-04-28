@@ -1,4 +1,4 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('eTrade')
 .constant('firebaseUrl', 'https://etrade.firebaseio.com/');

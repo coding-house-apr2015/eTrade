@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('poseidon')
+angular.module('eTrade')
 .config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/');
 
