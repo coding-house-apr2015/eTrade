@@ -1,1 +1,31 @@
-h3 SHOW PORTFOLIO
+h3 {{name | uppercase}} : {{position | currency}}
+
+.row
+  .col-xs-3
+    h4 Stock Form
+    form(name='stockForm', novalidate)
+      .form-group
+        label(for='symbol') Symbol
+        input.form-control#symbol(type='text', name='symbol', ng-model='stock.symbol')
+      .form-group
+        label(for='quantity') Quantity
+        input.form-control#quantity(type='number', name='quantity', ng-model='stock.quantity')
+      .form-group
+        button.btn.btn-success(type='submit', ng-click='purchase(stock)') Purchase Stock
+  .col-xs-9
+    h4 Stocks
+    table.table.table-striped
+      thead
+        tr
+          th Symbol
+          th Price
+          th Quantity
+          th Position
+          th Purchased
+      tbody
+        tr(ng-repeat='stock in stocks')
+          td {{stock.symbol}}
+          td {{stock.quote | currency}}
+          td {{stock.quantity}}
+          td {{stock.position | currency}}
+          td {{stock.purchasedOn | date:'yyyy-MM-dd'}}
